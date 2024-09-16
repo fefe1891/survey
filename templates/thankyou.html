@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}Thank You Page{% endblock %}
+{% block content %}
+    <h2>Thank you for taking the survey!</h2>
+
+    {% for question, response in paired_data %}
+    <p>
+        {{ loop.index }}. {{ question.question }}
+        <br>Response: {{ response.answer }}
+    </p>
+    {% if response.text %}
+    <p>
+        Comment: {{ response.text }}
+    </p>
+    {% endif %}
+    {% endfor %}
+{% endblock %}
